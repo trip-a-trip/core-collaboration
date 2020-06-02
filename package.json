@@ -4,6 +4,16 @@
   "repository": "git@github.com:trip-a-trip/core-collaboration.git",
   "author": "Igor Kamyshev <igor@kamyshev.me>",
   "license": "MIT",
+  "scripts": {
+    "dev": "yarn nodemon",
+    "build": "yarn tsn",
+    "types": "yarn tsc --noEmit",
+    "prod": "yarn node ./dist/main.js",
+    "pretty": "yarn prettier --write .",
+    "commit": "yarn git-cz",
+    "lint:code": "yarn eslint \"./**/*.{ts,tsx}\"",
+    "release": "yarn standard-version"
+  },
   "dependencies": {
     "@nestjs/common": "^7.1.2",
     "@nestjs/core": "^7.1.2",
@@ -24,6 +34,7 @@
   "devDependencies": {
     "@commitlint/cli": "^8.3.5",
     "@commitlint/config-conventional": "^8.3.4",
+    "@solid-soda/tsn": "^1.2.3",
     "@types/node": "12",
     "@typescript-eslint/eslint-plugin": "^2.27.0",
     "@typescript-eslint/parser": "^2.27.0",
@@ -44,12 +55,6 @@
     "standard-version": "^7.1.0",
     "ts-node": "^8.10.2",
     "typescript": "^3.9.3"
-  },
-  "scripts": {
-    "pretty": "yarn prettier --write .",
-    "commit": "yarn git-cz",
-    "lint:code": "yarn eslint \"./**/*.{ts,tsx}\"",
-    "release": "yarn standard-version"
   },
   "prettier": {
     "trailingComma": "all",
