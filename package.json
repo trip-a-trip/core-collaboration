@@ -29,7 +29,8 @@
     "pg": "^8.2.1",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^6.5.5",
-    "typeorm": "^0.2.25"
+    "typeorm": "^0.2.25",
+    "uid": "^1.0.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^8.3.5",

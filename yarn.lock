@@ -2616,6 +2616,7 @@ __metadata:
     ts-node: ^8.10.2
     typeorm: ^0.2.25
     typescript: ^3.9.3
+    uid: ^1.0.0
   languageName: unknown
   linkType: soft
 
@@ -9777,6 +9778,13 @@ fsevents@~2.1.2:
   bin:
     uglifyjs: bin/uglifyjs
   checksum: 3/17900b1ea2c45317a98a7ff0797f4c1e1fdb8bef74008423fcc704935a82b94cf1d68ea970d6c2a1bbc212da6c45f2f2b590818cdfa2bb52c2a5250d7ad9eee8
+  languageName: node
+  linkType: hard
+
+"uid@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "uid@npm:1.0.0"
+  checksum: 3/746151b6d7698e578c1de676c6dbd2f475ebd7dd2d91b407958ba7ddc6216d9ab772233392fde1930673a8d69bc303327477807fd367e1696e495dfb111eda4e
   languageName: node
   linkType: hard
 

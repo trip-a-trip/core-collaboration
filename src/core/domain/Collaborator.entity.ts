@@ -1,4 +1,7 @@
 import { Entity, PrimaryColumn, Column } from 'typeorm';
+import { BadRequestException } from '@nestjs/common';
+
+import { Invite } from './Invite.entity';
 
 @Entity({ name: 'collaborators' })
 export class Collaborator {
@@ -12,11 +15,21 @@ export class Collaborator {
   readonly invitedAt: Date;
 
   @Column({ name: 'rating' })
-  readonly rating: number = 0;
+  rating: number = 0;
 
   constructor(userId: string, sponsorId: string, invitedAt: Date) {
     this.userId = userId;
     this.sponsorId = sponsorId;
     this.invitedAt = invitedAt;
+  }
+
+  createInvite(): Invite {
+    if (this.rating < Invite.COST) {
+      throw new BadRequestException('User can not invite other');
+    }
+
+    this.rating -= Invite.COST;
+
+    return new Invite(this.userId);
   }
 }

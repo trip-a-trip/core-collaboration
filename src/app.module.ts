@@ -7,6 +7,7 @@ import { Invite } from './core/domain/Invite.entity';
 import { Collaborator } from './core/domain/Collaborator.entity';
 import { Initiator } from './core/application/Initiator';
 import { InviteController } from './core/presentation/http/controller/InviteController';
+import { TransformInterceptor } from './core/presentation/http/TransformInterceptor';
 
 @Module({
   imports: [
@@ -15,7 +16,7 @@ import { InviteController } from './core/presentation/http/controller/InviteCont
     TypeOrmModule.forFeature([Invite, Collaborator]),
   ],
   controllers: [InviteController],
-  providers: [Initiator],
+  providers: [Initiator, TransformInterceptor],
 })
 export class AppModule implements NestModule {
   public configure(consumer: MiddlewareConsumer) {

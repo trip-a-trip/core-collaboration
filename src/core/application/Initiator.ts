@@ -20,6 +20,22 @@ export class Initiator {
     private readonly collaboratorRepo: Repository<Collaborator>,
   ) {}
 
+  async getNewInvite(userId: string): Promise<Invite> {
+    const collaborator = await this.collaboratorRepo.findOne(userId);
+
+    if (!collaborator) {
+      throw new NotFoundException('User not found');
+    }
+
+    return this.em.transaction(async (em) => {
+      const invite = collaborator.createInvite();
+
+      await Promise.all([em.save(collaborator), em.save(invite)]);
+
+      return invite;
+    });
+  }
+
   async addNewCollaborator(inviteCode: string, userId: string): Promise<void> {
     const [invite, existCollaborator] = await Promise.all([
       this.inviteRepo.findOne(inviteCode),
@@ -34,13 +50,7 @@ export class Initiator {
     }
 
     await this.em.transaction(async (em) => {
-      invite.used = true;
-
-      const collaborator = new Collaborator(
-        userId,
-        invite.authorId,
-        new Date(),
-      );
+      const collaborator = invite.apply(userId);
 
       await Promise.all([em.save(invite), em.save(collaborator)]);
     });
