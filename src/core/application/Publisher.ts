@@ -9,6 +9,7 @@ import { InjectEntityManager, InjectRepository } from '@nestjs/typeorm';
 import { Collaborator } from '../domain/Collaborator.entity';
 import { PublishToken } from '../domain/PublishToken.entity';
 import { DraftFields } from '../domain/DraftFields';
+import { TaskManager } from './TaskManager';
 
 @Injectable()
 export class Publisher {
@@ -19,6 +20,7 @@ export class Publisher {
     private readonly collaboratorRepo: Repository<Collaborator>,
     @InjectRepository(PublishToken)
     private readonly publishTokenRepo: Repository<PublishToken>,
+    private readonly tasks: TaskManager,
   ) {}
 
   async publishDraft(code: string, fields: DraftFields) {
@@ -32,6 +34,8 @@ export class Publisher {
       const draft = token.apply(fields);
 
       await Promise.all([em.save(token), em.save(draft)]);
+
+      await this.tasks.requestModeration(draft);
     });
   }
 

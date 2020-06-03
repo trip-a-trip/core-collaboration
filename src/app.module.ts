@@ -13,6 +13,7 @@ import { Publisher } from './core/application/Publisher';
 import { PublicationController } from './core/presentation/http/controller/PublicationController';
 import { CollaboratorController } from './core/presentation/http/controller/CollaboratorController';
 import { Draft } from './core/domain/Draft.entity';
+import { TaskManager } from './core/application/TaskManager';
 
 @Module({
   imports: [
@@ -25,7 +26,7 @@ import { Draft } from './core/domain/Draft.entity';
     PublicationController,
     CollaboratorController,
   ],
-  providers: [Initiator, Publisher, TransformInterceptor],
+  providers: [Initiator, Publisher, TransformInterceptor, TaskManager],
 })
 export class AppModule implements NestModule {
   public configure(consumer: MiddlewareConsumer) {
