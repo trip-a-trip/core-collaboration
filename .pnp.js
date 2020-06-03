@@ -70,6 +70,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         "npm:1.2.3"
       ],
       [
+        "@trip-a-trip/lib",
+        "npm:1.7.0"
+      ],
+      [
         "@types/node",
         "npm:12.12.42"
       ],
@@ -203,6 +207,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@solid-soda/config", "npm:2.2.0"],
             ["@solid-soda/evolutions", "npm:0.1.2"],
             ["@solid-soda/tsn", "npm:1.2.3"],
+            ["@trip-a-trip/lib", "npm:1.7.0"],
             ["@types/node", "npm:12.12.42"],
             ["@typescript-eslint/eslint-plugin", "virtual:3dc3f99af1ba201747b46991d0819bc863dfc1ce0734511c05d3d698a22c6168a45e66117efd68b0a6ab013d3569c71eeb57578129eb73496efd8fd713571e0a#npm:2.34.0"],
             ["@typescript-eslint/parser", "virtual:3dc3f99af1ba201747b46991d0819bc863dfc1ce0734511c05d3d698a22c6168a45e66117efd68b0a6ab013d3569c71eeb57578129eb73496efd8fd713571e0a#npm:2.34.0"],
@@ -749,6 +754,17 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [
             ["@szmarczak/http-timer", "npm:4.0.5"],
             ["defer-to-connect", "npm:2.0.0"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["@trip-a-trip/lib", [
+        ["npm:1.7.0", {
+          "packageLocation": "./.yarn/cache/@trip-a-trip-lib-npm-1.7.0-c5a888bb6f-3.zip/node_modules/@trip-a-trip/lib/",
+          "packageDependencies": [
+            ["@trip-a-trip/lib", "npm:1.7.0"],
+            ["axios", "npm:0.19.2"],
+            ["qs", "npm:6.9.4"]
           ],
           "linkType": "HARD",
         }]
@@ -3139,6 +3155,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@solid-soda/config", "npm:2.2.0"],
             ["@solid-soda/evolutions", "npm:0.1.2"],
             ["@solid-soda/tsn", "npm:1.2.3"],
+            ["@trip-a-trip/lib", "npm:1.7.0"],
             ["@types/node", "npm:12.12.42"],
             ["@typescript-eslint/eslint-plugin", "virtual:3dc3f99af1ba201747b46991d0819bc863dfc1ce0734511c05d3d698a22c6168a45e66117efd68b0a6ab013d3569c71eeb57578129eb73496efd8fd713571e0a#npm:2.34.0"],
             ["@typescript-eslint/parser", "virtual:3dc3f99af1ba201747b46991d0819bc863dfc1ce0734511c05d3d698a22c6168a45e66117efd68b0a6ab013d3569c71eeb57578129eb73496efd8fd713571e0a#npm:2.34.0"],

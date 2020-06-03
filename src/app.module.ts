@@ -12,12 +12,13 @@ import { PublishToken } from './core/domain/PublishToken.entity';
 import { Publisher } from './core/application/Publisher';
 import { PublicationController } from './core/presentation/http/controller/PublicationController';
 import { CollaboratorController } from './core/presentation/http/controller/CollaboratorController';
+import { Draft } from './core/domain/Draft.entity';
 
 @Module({
   imports: [
     ConfigModule,
     TypeOrmModule.forRootAsync(typeOrmProvider),
-    TypeOrmModule.forFeature([Invite, Collaborator, PublishToken]),
+    TypeOrmModule.forFeature([Invite, Collaborator, PublishToken, Draft]),
   ],
   controllers: [
     InviteController,

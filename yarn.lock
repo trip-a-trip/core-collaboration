@@ -457,6 +457,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@trip-a-trip/lib@npm:^1.7.0":
+  version: 1.7.0
+  resolution: "@trip-a-trip/lib@npm:1.7.0"
+  dependencies:
+    axios: ^0.19.2
+    qs: ^6.9.4
+  checksum: 3/b818f790e2fb7f3113ce32d5e4f7f32688d377834bb6b7edb467826a9e02754378238c024aae47e1a043d2eafb300dd592cbb2a8976511cdffaed31ec1c6e366
+  languageName: node
+  linkType: hard
+
 "@types/cacheable-request@npm:^6.0.1":
   version: 6.0.1
   resolution: "@types/cacheable-request@npm:6.0.1"
@@ -1343,7 +1353,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"axios@npm:0.19.2":
+"axios@npm:0.19.2, axios@npm:^0.19.2":
   version: 0.19.2
   resolution: "axios@npm:0.19.2"
   dependencies:
@@ -2588,6 +2598,7 @@ __metadata:
     "@solid-soda/config": ^2.2.0
     "@solid-soda/evolutions": ^0.1.2
     "@solid-soda/tsn": ^1.2.3
+    "@trip-a-trip/lib": ^1.7.0
     "@types/node": 12
     "@typescript-eslint/eslint-plugin": ^2.27.0
     "@typescript-eslint/parser": ^2.27.0
