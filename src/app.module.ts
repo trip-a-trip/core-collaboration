@@ -14,6 +14,7 @@ import { PublicationController } from './core/presentation/http/controller/Publi
 import { CollaboratorController } from './core/presentation/http/controller/CollaboratorController';
 import { Draft } from './core/domain/Draft.entity';
 import { TaskManager } from './core/application/TaskManager';
+import { Moderator } from './core/application/Moderator';
 
 @Module({
   imports: [
@@ -26,7 +27,13 @@ import { TaskManager } from './core/application/TaskManager';
     PublicationController,
     CollaboratorController,
   ],
-  providers: [Initiator, Publisher, TransformInterceptor, TaskManager],
+  providers: [
+    Initiator,
+    Publisher,
+    TransformInterceptor,
+    TaskManager,
+    Moderator,
+  ],
 })
 export class AppModule implements NestModule {
   public configure(consumer: MiddlewareConsumer) {

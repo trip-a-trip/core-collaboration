@@ -29,4 +29,16 @@ export class Draft {
     this.fields = fields;
     this.authorId = authorId;
   }
+
+  approve(moderatorId: string) {
+    this.approved = true;
+    this.moderated = true;
+    this.moderatorId = moderatorId;
+  }
+
+  decline(moderatorId: string) {
+    this.approved = false;
+    this.moderated = true;
+    this.moderatorId = moderatorId;
+  }
 }

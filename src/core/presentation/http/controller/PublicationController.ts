@@ -17,16 +17,34 @@ import {
 
 import { PublishToken } from '&app/core/domain/PublishToken.entity';
 import { Publisher } from '&app/core/application/Publisher';
+import { Moderator } from '&app/core/application/Moderator';
 
 import { TransformInterceptor } from '../TransformInterceptor';
 import { CreateForUserRequest } from '../request/CreateForUserRequest';
 import { DraftCreateRequest } from '../request/DraftCreateRequest';
+import { ModerationRequest } from '../request/ModerationRequest';
 
 @Controller('v1/publication')
 @UseInterceptors(TransformInterceptor)
 @ApiTags('publication')
 export class PublicationController {
-  constructor(private readonly publisher: Publisher) {}
+  constructor(
+    private readonly publisher: Publisher,
+    private readonly moderator: Moderator,
+  ) {}
+
+  @Post('draft/moderate')
+  @ApiOkResponse({ description: 'Save' })
+  @ApiNotFoundResponse({ description: 'Draft not found' })
+  async moderate(@Body() request: ModerationRequest) {
+    const { approved, draftId, moderatorId } = request;
+
+    if (approved) {
+      await this.moderator.approve(draftId, moderatorId);
+    } else {
+      await this.moderator.decline(draftId, moderatorId);
+    }
+  }
 
   @Post('draft/create')
   @ApiOkResponse({ description: 'Created' })
