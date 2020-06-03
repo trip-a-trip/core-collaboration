@@ -11,6 +11,7 @@ import { TransformInterceptor } from './core/presentation/http/TransformIntercep
 import { PublishToken } from './core/domain/PublishToken.entity';
 import { Publisher } from './core/application/Publisher';
 import { PublicationController } from './core/presentation/http/controller/PublicationController';
+import { CollaboratorController } from './core/presentation/http/controller/CollaboratorController';
 
 @Module({
   imports: [
@@ -18,7 +19,11 @@ import { PublicationController } from './core/presentation/http/controller/Publi
     TypeOrmModule.forRootAsync(typeOrmProvider),
     TypeOrmModule.forFeature([Invite, Collaborator, PublishToken]),
   ],
-  controllers: [InviteController, PublicationController],
+  controllers: [
+    InviteController,
+    PublicationController,
+    CollaboratorController,
+  ],
   providers: [Initiator, Publisher, TransformInterceptor],
 })
 export class AppModule implements NestModule {
