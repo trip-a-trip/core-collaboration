@@ -23,7 +23,7 @@ export class Invite {
   used: boolean = false;
 
   constructor(authorId: string) {
-    this.code = `INVITE_${uid()}`;
+    this.code = `INVITE_${uid(20)}`;
     this.authorId = authorId;
   }
 

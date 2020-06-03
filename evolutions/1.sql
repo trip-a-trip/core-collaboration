@@ -7,6 +7,15 @@ CREATE TABLE public.invites (
 ALTER TABLE ONLY public.invites
   ADD CONSTRAINT "PK_invites" PRIMARY KEY (code);
 
+CREATE TABLE public."publish_tokens" (
+  "token"   varchar NOT NULL,
+  "user_id" varchar NOT NULL,
+  "used"    boolean NOT NULL default FALSE
+);
+
+ALTER TABLE ONLY public."publish_tokens"
+  ADD CONSTRAINT "PK_publish_tokens" PRIMARY KEY (token);
+
 CREATE TABLE public.collaborators (
   "user_id"    varchar                     NOT NULL,
   "sponsor_id" varchar                     NOT NULL,
@@ -20,4 +29,5 @@ ALTER TABLE ONLY public.collaborators
 #DOWN
 
 DROP TABLE public.invites;
+DROP TABLE public."publish_tokens";
 DROP TABLE public.collaborators;

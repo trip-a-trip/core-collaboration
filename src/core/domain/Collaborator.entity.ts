@@ -2,6 +2,7 @@ import { Entity, PrimaryColumn, Column } from 'typeorm';
 import { BadRequestException } from '@nestjs/common';
 
 import { Invite } from './Invite.entity';
+import { PublishToken } from './PublishToken.entity';
 
 @Entity({ name: 'collaborators' })
 export class Collaborator {
@@ -31,5 +32,15 @@ export class Collaborator {
     this.rating -= Invite.COST;
 
     return new Invite(this.userId);
+  }
+
+  createPublishToken(): PublishToken {
+    if (this.rating < PublishToken.RATING_THRESHOLD) {
+      throw new BadRequestException(
+        'User can not create drafts, rating to low',
+      );
+    }
+
+    return new PublishToken(this.userId);
   }
 }

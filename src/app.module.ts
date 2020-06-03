@@ -8,15 +8,18 @@ import { Collaborator } from './core/domain/Collaborator.entity';
 import { Initiator } from './core/application/Initiator';
 import { InviteController } from './core/presentation/http/controller/InviteController';
 import { TransformInterceptor } from './core/presentation/http/TransformInterceptor';
+import { PublishToken } from './core/domain/PublishToken.entity';
+import { Publisher } from './core/application/Publisher';
+import { PublicationController } from './core/presentation/http/controller/PublicationController';
 
 @Module({
   imports: [
     ConfigModule,
     TypeOrmModule.forRootAsync(typeOrmProvider),
-    TypeOrmModule.forFeature([Invite, Collaborator]),
+    TypeOrmModule.forFeature([Invite, Collaborator, PublishToken]),
   ],
-  controllers: [InviteController],
-  providers: [Initiator, TransformInterceptor],
+  controllers: [InviteController, PublicationController],
+  providers: [Initiator, Publisher, TransformInterceptor],
 })
 export class AppModule implements NestModule {
   public configure(consumer: MiddlewareConsumer) {

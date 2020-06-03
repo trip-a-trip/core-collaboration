@@ -12,6 +12,7 @@ import { Invite } from '&app/core/domain/Invite.entity';
 
 import { ApplyInviteCodeRequest } from '../request/ApplyInviteCodeRequest';
 import { TransformInterceptor } from '../TransformInterceptor';
+import { CreateForUserRequest } from '../request/CreateForUserRequest';
 
 @Controller('/v1/invite')
 @UseInterceptors(TransformInterceptor)
@@ -23,8 +24,8 @@ export class InviteController {
   @ApiCreatedResponse({ description: 'Invite created', type: Invite })
   @ApiNotFoundResponse({ description: 'User not found' })
   @ApiBadRequestResponse({ description: 'User can not invite other users' })
-  async getInvite() {
-    const invite = await this.initiator.getNewInvite('ff');
+  async getInvite(@Body() { userId }: CreateForUserRequest) {
+    const invite = await this.initiator.getNewInvite(userId);
 
     return invite;
   }
