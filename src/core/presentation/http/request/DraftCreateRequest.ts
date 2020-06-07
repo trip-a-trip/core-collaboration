@@ -1,7 +1,5 @@
-import { Coordinates, VenueKind, Link } from '@trip-a-trip/lib';
+import { Coordinates, VenueKind, Link, DraftFields } from '@trip-a-trip/lib';
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
-
-import { DraftFields } from '&app/core/domain/DraftFields';
 
 export class DraftCreateRequest implements DraftFields {
   @ApiProperty({ example: 'jkhfkdshk34kjnn' })

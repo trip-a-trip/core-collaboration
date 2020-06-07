@@ -1,14 +1,6 @@
 {
-  "plugins": [
-    "unicorn",
-    "eslint-plugin-import-helpers",
-    "@typescript-eslint"
-  ],
-  "extends": [
-    "airbnb-base",
-    "plugin:unicorn/recommended",
-    "prettier"
-  ],
+  "plugins": ["unicorn", "eslint-plugin-import-helpers", "@typescript-eslint"],
+  "extends": ["airbnb-base", "plugin:unicorn/recommended", "prettier"],
   "rules": {
     "no-undef": 0,
     "no-restricted-syntax": 0,
@@ -26,18 +18,7 @@
       "warn",
       {
         "newlinesBetween": "always",
-        "groups": [
-          "module",
-          [
-            "/^$/",
-            "/^&/"
-          ],
-          [
-            "parent",
-            "sibling",
-            "index"
-          ]
-        ],
+        "groups": ["module", ["/^$/", "/^&/"], ["parent", "sibling", "index"]],
         "alphabetize": {
           "order": "ignore",
           "ignoreCase": true
@@ -49,9 +30,7 @@
     "no-empty-function": [
       "error",
       {
-        "allow": [
-          "constructors"
-        ]
+        "allow": ["constructors"]
       }
     ],
     "react/prop-types": 0

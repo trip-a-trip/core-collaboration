@@ -1,10 +1,9 @@
 import { Entity, PrimaryColumn, Column } from 'typeorm';
+import { DraftFields, Draft as BaseDraft } from '@trip-a-trip/lib';
 import uid from 'uid';
 
-import { DraftFields } from './DraftFields';
-
 @Entity({ name: 'drafts' })
-export class Draft {
+export class Draft implements BaseDraft {
   @PrimaryColumn({ name: 'id' })
   id: string;
 

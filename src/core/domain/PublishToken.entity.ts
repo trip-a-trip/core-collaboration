@@ -1,11 +1,11 @@
 import { Entity, PrimaryColumn, Column } from 'typeorm';
-import uid from 'uid';
-import { Exclude } from 'class-transformer';
 import { ForbiddenException } from '@nestjs/common';
+import { DraftFields } from '@trip-a-trip/lib';
 import { ApiProperty } from '@nestjs/swagger';
+import { Exclude } from 'class-transformer';
+import uid from 'uid';
 
 import { Draft } from './Draft.entity';
-import { DraftFields } from './DraftFields';
 
 @Entity({ name: 'publish_tokens' })
 export class PublishToken {

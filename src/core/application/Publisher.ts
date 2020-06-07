@@ -1,14 +1,14 @@
+import { InjectEntityManager, InjectRepository } from '@nestjs/typeorm';
+import { EntityManager, Repository } from 'typeorm';
+import { DraftFields } from '@trip-a-trip/lib';
 import {
   Injectable,
   NotFoundException,
   ForbiddenException,
 } from '@nestjs/common';
-import { EntityManager, Repository } from 'typeorm';
-import { InjectEntityManager, InjectRepository } from '@nestjs/typeorm';
 
 import { Collaborator } from '../domain/Collaborator.entity';
 import { PublishToken } from '../domain/PublishToken.entity';
-import { DraftFields } from '../domain/DraftFields';
 import { TaskManager } from './TaskManager';
 
 @Injectable()
