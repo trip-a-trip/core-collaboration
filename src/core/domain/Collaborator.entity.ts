@@ -1,13 +1,15 @@
 import { Entity, PrimaryColumn, Column } from 'typeorm';
 import { BadRequestException } from '@nestjs/common';
 import { Expose, Exclude } from 'class-transformer';
+import { ApiProperty } from '@nestjs/swagger';
 
-import { Invite } from './Invite.entity';
 import { PublishToken } from './PublishToken.entity';
+import { Invite } from './Invite.entity';
 
 @Entity({ name: 'collaborators' })
 export class Collaborator {
   @PrimaryColumn({ name: 'user_id' })
+  @ApiProperty({ example: 'fdsfds' })
   readonly userId: string;
 
   @Column({ name: 'sponsor_id' })
@@ -19,14 +21,17 @@ export class Collaborator {
   readonly invitedAt: Date;
 
   @Column({ name: 'rating' })
+  @ApiProperty({ example: 12 })
   rating: number = 0;
 
   @Expose()
+  @ApiProperty({ example: true })
   get canInvite() {
     return this.rating >= Invite.COST;
   }
 
   @Expose()
+  @ApiProperty({ example: false })
   get canPublish() {
     return this.rating >= PublishToken.RATING_THRESHOLD;
   }
