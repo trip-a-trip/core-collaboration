@@ -22,7 +22,7 @@
     "@nestjs/typeorm": "^7.1.0",
     "@solid-soda/config": "^2.2.0",
     "@solid-soda/evolutions": "^0.1.2",
-    "@trip-a-trip/lib": "^1.7.0",
+    "@trip-a-trip/lib": "^1.8.0",
     "class-transformer": "^0.2.3",
     "class-validator": "^0.12.2",
     "fastify": "^2.14.1",

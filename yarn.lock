@@ -457,13 +457,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@trip-a-trip/lib@npm:^1.7.0":
-  version: 1.7.0
-  resolution: "@trip-a-trip/lib@npm:1.7.0"
+"@trip-a-trip/lib@npm:^1.8.0":
+  version: 1.8.0
+  resolution: "@trip-a-trip/lib@npm:1.8.0"
   dependencies:
     axios: ^0.19.2
     qs: ^6.9.4
-  checksum: 3/b818f790e2fb7f3113ce32d5e4f7f32688d377834bb6b7edb467826a9e02754378238c024aae47e1a043d2eafb300dd592cbb2a8976511cdffaed31ec1c6e366
+  checksum: 3/fb77b212e1c558d19c66862ceece4d8437d2ac607806b0a5015b730f207f3c31117791250acb5fb1a9a1dbbdc9a401f69611073ccabda75f01264b22f0da6f81
   languageName: node
   linkType: hard
 
@@ -2598,7 +2598,7 @@ __metadata:
     "@solid-soda/config": ^2.2.0
     "@solid-soda/evolutions": ^0.1.2
     "@solid-soda/tsn": ^1.2.3
-    "@trip-a-trip/lib": ^1.7.0
+    "@trip-a-trip/lib": ^1.8.0
     "@types/node": 12
     "@typescript-eslint/eslint-plugin": ^2.27.0
     "@typescript-eslint/parser": ^2.27.0

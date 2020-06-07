@@ -1,24 +1,26 @@
 import { Module, NestModule, MiddlewareConsumer } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
-import { ConfigModule } from './external/config.module';
-import { typeOrmProvider } from './external/typeOrmProvider';
-import { Invite } from './core/domain/Invite.entity';
-import { Collaborator } from './core/domain/Collaborator.entity';
-import { Initiator } from './core/application/Initiator';
-import { InviteController } from './core/presentation/http/controller/InviteController';
-import { TransformInterceptor } from './core/presentation/http/TransformInterceptor';
-import { PublishToken } from './core/domain/PublishToken.entity';
-import { Publisher } from './core/application/Publisher';
 import { PublicationController } from './core/presentation/http/controller/PublicationController';
 import { CollaboratorController } from './core/presentation/http/controller/CollaboratorController';
-import { Draft } from './core/domain/Draft.entity';
+import { InviteController } from './core/presentation/http/controller/InviteController';
+import { TransformInterceptor } from './core/presentation/http/TransformInterceptor';
+import { Collaborator } from './core/domain/Collaborator.entity';
+import { PublishToken } from './core/domain/PublishToken.entity';
+import { typeOrmProvider } from './external/typeOrmProvider';
 import { TaskManager } from './core/application/TaskManager';
+import { PlatformModule } from './platform/platform.module';
+import { Initiator } from './core/application/Initiator';
+import { Publisher } from './core/application/Publisher';
 import { Moderator } from './core/application/Moderator';
+import { ConfigModule } from './external/config.module';
+import { Invite } from './core/domain/Invite.entity';
+import { Draft } from './core/domain/Draft.entity';
 
 @Module({
   imports: [
     ConfigModule,
+    PlatformModule,
     TypeOrmModule.forRootAsync(typeOrmProvider),
     TypeOrmModule.forFeature([Invite, Collaborator, PublishToken, Draft]),
   ],

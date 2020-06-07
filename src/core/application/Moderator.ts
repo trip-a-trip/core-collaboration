@@ -1,6 +1,8 @@
+import { InjectEntityManager, InjectRepository } from '@nestjs/typeorm';
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { EntityManager, Repository } from 'typeorm';
-import { InjectEntityManager, InjectRepository } from '@nestjs/typeorm';
+import { EatClient } from '@trip-a-trip/lib';
+import uid from 'uid';
 
 import { Draft } from '../domain/Draft.entity';
 import { TaskManager } from './TaskManager';
@@ -13,6 +15,7 @@ export class Moderator {
     @InjectRepository(Draft)
     private readonly draftRepo: Repository<Draft>,
     private readonly tasks: TaskManager,
+    private readonly eat: EatClient,
   ) {}
 
   async approve(draftId: string, moderatorId: string) {
@@ -26,8 +29,15 @@ export class Moderator {
 
     await this.em.transaction(async (em) => {
       await em.save(draft);
-      await this.tasks.notifyAboutModeration(draft);
-      // TODO: create venue in core-eat
+
+      await Promise.all([
+        this.tasks.notifyAboutModeration(draft),
+        this.eat.createVenue({
+          ...draft.fields,
+          id: uid(20),
+          authorId: draft.authorId,
+        }),
+      ]);
     });
   }
 
@@ -42,6 +52,7 @@ export class Moderator {
 
     await this.em.transaction(async (em) => {
       await em.save(draft);
+
       await this.tasks.notifyAboutModeration(draft);
     });
   }
