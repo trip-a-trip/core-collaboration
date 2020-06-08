@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.1.0](https://github.com/trip-a-trip/core-collaboration/compare/v1.0.0...v1.1.0) (2020-06-08)
+
+### Features
+
+- re-request moderation fot stale drafts ([125ee0a](https://github.com/trip-a-trip/core-collaboration/commit/125ee0ad4bf400a4bdca7c60ea1a15bd2d40bcb3))
+
 ## 1.0.0 (2020-06-07)
 
 ### Features
