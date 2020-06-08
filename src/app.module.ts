@@ -12,11 +12,13 @@ import { PublicationController } from './core/presentation/http/controller/Publi
 import { CollaboratorController } from './core/presentation/http/controller/CollaboratorController';
 import { InviteController } from './core/presentation/http/controller/InviteController';
 import { TransformInterceptor } from './core/presentation/http/TransformInterceptor';
+import { PeriodTaskSetuper } from './core/presentation/queue/PeriodTaskSetuper';
 import { Collaborator } from './core/domain/Collaborator.entity';
 import { PublishToken } from './core/domain/PublishToken.entity';
 import { typeOrmProvider } from './external/typeOrmProvider';
 import { TaskManager } from './core/application/TaskManager';
 import { PlatformModule } from './platform/platform.module';
+import { CHECK_UNMODERATED_QUEUE } from './external/queue';
 import { Initiator } from './core/application/Initiator';
 import { Publisher } from './core/application/Publisher';
 import { Moderator } from './core/application/Moderator';
@@ -33,6 +35,7 @@ import { Draft } from './core/domain/Draft.entity';
     TypeOrmModule.forFeature([Invite, Collaborator, PublishToken, Draft]),
     BullModule.registerQueueAsync(
       bullProvider(MODERATION_REQUEST_QUEUE),
+      bullProvider(CHECK_UNMODERATED_QUEUE),
       bullProvider(MODERATION_NOTIFY_QUEUE),
       bullProvider(REVIEW_REQUEST_QUEUE),
       bullProvider(REVIEW_NOTIFY_QUEUE),
@@ -47,6 +50,7 @@ import { Draft } from './core/domain/Draft.entity';
     Initiator,
     Publisher,
     TransformInterceptor,
+    PeriodTaskSetuper,
     TaskManager,
     Moderator,
   ],
