@@ -19,7 +19,6 @@ export class PeriodTaskSetuper implements OnApplicationBootstrap {
     await this.unmoderatedQueue.add(
       { name: CHECK_UNMODERATED_QUEUE },
       {
-        jobId: CHECK_UNMODERATED_QUEUE,
         repeat: this.EVERY_DAY,
       },
     );
