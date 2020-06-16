@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.1.1](https://github.com/trip-a-trip/core-collaboration/compare/v1.1.0...v1.1.1) (2020-06-16)
+
+### Bug Fixes
+
+- remove id from jobs ([d890d15](https://github.com/trip-a-trip/core-collaboration/commit/d890d1510ed4024e8c642a8362e230fed3784966))
+
 ## [1.1.0](https://github.com/trip-a-trip/core-collaboration/compare/v1.0.0...v1.1.0) (2020-06-08)
 
 ### Features
